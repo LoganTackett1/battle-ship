@@ -86,6 +86,21 @@ export function newBoard() {
     }
   };
 
+  board.checkLoss = function () {
+    if (this.ships.length > 0) {
+      let count = 0;
+      this.ships.forEach((ship) => {
+        if (ship.dead === true) {
+          count += 1;
+        }
+      });
+      if (count === this.ships.length) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   return board;
 }
 
