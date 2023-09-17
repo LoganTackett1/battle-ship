@@ -31,7 +31,7 @@ function dirVect(dir) {
   throw Error("Invalid direction in dirVect");
 }
 
-export function newBoard() {
+function newBoard() {
   const board = {};
 
   board.ships = [];
@@ -104,4 +104,4 @@ export function newBoard() {
   return board;
 }
 
-export function dummy() {}
+export default newBoard;

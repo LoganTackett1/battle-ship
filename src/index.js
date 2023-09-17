@@ -1,4 +1,4 @@
-import { newBoard } from "./board";
+import newBoard from "./board";
 
 const myBoard = newBoard();
 myBoard.placeShip(9, 9, 5, "left");
