@@ -1,6 +1,6 @@
 class Vector {
   constructor(...args) {
-    for (let i = 0; i < args.length; i+=1) {
+    for (let i = 0; i < args.length; i += 1) {
       this[`x${i}`] = args[i];
     }
     this.dim = args.length;
@@ -10,14 +10,14 @@ class Vector {
     if (vector.dim !== this.dim) {
       throw new Error("Cannot sum vectors of different dimension.");
     } else {
-      for (let i = 0; i < this.dim; i+=1) {
+      for (let i = 0; i < this.dim; i += 1) {
         this[`x${i}`] += vector[`x${i}`];
       }
     }
   }
 
   scale(constant) {
-    for (let i = 0; i < this.dim; i+=1) {
+    for (let i = 0; i < this.dim; i += 1) {
       this[`x${i}`] *= constant;
     }
   }
@@ -27,7 +27,7 @@ class Vector {
       throw new Error("Cannot sum vectors of different dimension.");
     } else {
       let result = 0;
-      for (let i = 0; i < this.dim; i+=1) {
+      for (let i = 0; i < this.dim; i += 1) {
         result += this[`x${i}`] * vector[`x${i}`];
       }
       return result;
@@ -35,14 +35,14 @@ class Vector {
   }
 
   map(func) {
-    for (let i = 0; i < this.dim; i+=1) {
+    for (let i = 0; i < this.dim; i += 1) {
       this[`x${i}`] = func(this[`x${i}`]);
     }
   }
 
   toArray() {
     const result = [];
-    for (let i = 0; i < this.dim; i+=1) {
+    for (let i = 0; i < this.dim; i += 1) {
       result.push(this[`x${i}`]);
     }
     return result;
@@ -51,19 +51,18 @@ class Vector {
   distSquared(vector = false) {
     if (vector === false) {
       let result = 0;
-      for (let i = 0; i < this.dim; i+=1) {
+      for (let i = 0; i < this.dim; i += 1) {
         result += this[`x${i}`] ** 2;
       }
       return result;
     }
-      let result = 0;
-      for (let i = 0; i < this.dim; i+=1) {
-        result += (this[`x${i}`] - vector[`x${i}`]) ** 2;
-      }
-      return result;
-    
+    let result = 0;
+    for (let i = 0; i < this.dim; i += 1) {
+      result += (this[`x${i}`] - vector[`x${i}`]) ** 2;
+    }
+    return result;
   }
-  
+
   mutateR2() {
     const x = 2 * Math.random() - 1;
     const y = 2 * Math.random() - 1;

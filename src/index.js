@@ -1,5 +1,6 @@
-import newBoard from "./board";
+import createScene from "./render";
 
+/*
 const myBoard = newBoard();
 myBoard.placeShip(9, 9, 5, "left");
 myBoard.receiveAttack(9, 6);
@@ -9,3 +10,7 @@ myBoard.receiveAttack(9, 9);
 myBoard.receiveAttack(9, 5);
 
 console.log(myBoard.checkLoss());
+*/
+
+const scene = createScene();
+document.body.appendChild(scene);
