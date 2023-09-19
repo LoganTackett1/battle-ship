@@ -12,5 +12,6 @@ myBoard.receiveAttack(9, 5);
 console.log(myBoard.checkLoss());
 */
 
-const scene = createScene();
-document.body.appendChild(scene);
+const render = createScene();
+document.body.appendChild(render.domElement);
+console.log(render);

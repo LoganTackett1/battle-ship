@@ -92,7 +92,14 @@ function createScene() {
     p2Main.appendChild(item);
   });
 
-  return scene;
+  const renderObj = {};
+  renderObj.domElement = scene;
+  renderObj.p1 = p1Scene;
+  renderObj.p2 = p2Scene;
+
+  renderObj.update = function (board) {};
+
+  return renderObj;
 }
 
 export default createScene;
