@@ -1,0 +1,55 @@
+#scene {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+}
+
+#status-bar {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+
+#play-area {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.player-area {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.player-side {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+}
+
+.player-main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+
+.main-board {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid: repeat(10, 1fr) / repeat(10, 1fr);
+}
+
+.tile {
+  width: 100%;
+  height: 100%;
+  background-color: green;
+}

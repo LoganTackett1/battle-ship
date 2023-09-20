@@ -1,3 +1,6 @@
+// eslint-disable-next-line no-unused-vars
+import css from "./render.css";
+
 function createPlayerScene(player) {
   const result = {};
 
@@ -51,26 +54,32 @@ function createScene() {
 
   const p1Area = document.createElement("div");
   p1Area.id = "p1-area";
+  p1Area.classList.add("player-area");
   playArea.appendChild(p1Area);
 
   const p2Area = document.createElement("div");
   p2Area.id = "p2-area";
+  p2Area.classList.add("player-area");
   playArea.appendChild(p2Area);
 
   const p1Side = document.createElement("div");
   p1Side.id = "p1-side";
+  p1Side.classList.add("player-side");
   p1Area.appendChild(p1Side);
 
   const p2Side = document.createElement("div");
   p2Side.id = "p2-side";
+  p2Side.classList.add("player-side");
   p2Area.appendChild(p2Side);
 
   const p1Main = document.createElement("div");
   p1Main.id = "p1-main";
+  p1Main.classList.add("player-main");
   p1Area.appendChild(p1Main);
 
   const p2Main = document.createElement("div");
   p2Main.id = "p2-main";
+  p2Main.classList.add("player-main");
   p2Area.appendChild(p2Main);
 
   const p1Scene = createPlayerScene("p1");
@@ -98,6 +107,32 @@ function createScene() {
   renderObj.p2 = p2Scene;
 
   renderObj.update = function (board) {};
+
+  window.addEventListener("resize", () => {
+    const temp1 = p1Scene.main[1];
+    const temp2 = p2Scene.main[1];
+    const width = temp1.offsetWidth;
+    const height = temp1.offsetHeight;
+    if (width > height) {
+      temp1.style.paddingLeft = `${(width - height) / 2}px`;
+      temp1.style.paddingRight = `${(width - height) / 2}px`;
+      temp1.style.paddingTop = `0`;
+      temp1.style.paddingBottom = `0`;
+      temp2.style.paddingLeft = `${(width - height) / 2}px`;
+      temp2.style.paddingRight = `${(width - height) / 2}px`;
+      temp2.style.paddingTop = `0`;
+      temp2.style.paddingBottom = `0`;
+    } else {
+      temp1.style.paddingLeft = `0`;
+      temp1.style.paddingRight = `0`;
+      temp1.style.paddingTop = `${(height - width) / 2}px`;
+      temp1.style.paddingBottom = `${(height - width) / 2}px`;
+      temp2.style.paddingLeft = `0`;
+      temp2.style.paddingRight = `0`;
+      temp2.style.paddingTop = `${(height - width) / 2}px`;
+      temp2.style.paddingBottom = `${(height - width) / 2}px`;
+    }
+  });
 
   return renderObj;
 }
